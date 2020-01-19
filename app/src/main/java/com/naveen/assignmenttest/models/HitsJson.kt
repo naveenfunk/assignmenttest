@@ -1,6 +1,5 @@
 package com.naveen.assignmenttest.models
 
-import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 
@@ -57,7 +56,8 @@ class Hit(
     @SerializedName("title")
     val title: String,
     @SerializedName("url")
-    val url: String
+    val url: String,
+    var on: Boolean
 )
 
 data class HighlightResult(

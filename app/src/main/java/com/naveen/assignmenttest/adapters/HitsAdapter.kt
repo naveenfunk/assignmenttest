@@ -35,8 +35,11 @@ class HitsAdapter(var list: ArrayList<Hit>?, var onItemClickListener: OnItemClic
 
 
     override fun onBindViewHolder(holder: HitsHolder, position: Int) {
-        holder.bind(list?.get(holder.adapterPosition))
-        holder.binding.root.setOnClickListener { v ->
+        var data: Hit? = list?.get(holder.adapterPosition)
+        holder.bind(data)
+        holder.binding.toggle.isChecked = data?.on!!
+        holder.binding.rootContainer.isActivated = data?.on!!
+        holder.binding.rootContainer.setOnClickListener { v ->
             onItemClickListener.onItemClicked(
                 v,
                 holder.adapterPosition,
